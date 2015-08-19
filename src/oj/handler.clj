@@ -1,4 +1,5 @@
 (ns oj.handler
+  (:use [hiccup.middleware :only (wrap-base-url)])
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
@@ -14,8 +15,9 @@
 (defn start
   "Start our server in the specified port"
   [port]
-  (http/start-server (wrap-defaults (if (= dev-env true) (wrap-reload #'app-routes) #'app-routes)
+  (http/start-server (wrap-defaults (wrap-base-url (if (= dev-env true) (wrap-reload #'app-routes) #'app-routes))
                                     site-defaults) {:port port}))
+
 
 (defn -main [& args]
   (println "listening port 3000")

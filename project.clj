@@ -6,7 +6,8 @@
                  [compojure "1.3.1"]
                  [ring/ring-defaults "0.1.2"]
                  [ring/ring-devel "1.4.0"]
-                 [aleph "0.4.0"]]
+                 [aleph "0.4.0"]
+                 [hiccup "1.0.5"]]
   :plugins [[lein-ring "0.8.13"]]
   :ring {:handler oj.handler/app}
   :profiles
