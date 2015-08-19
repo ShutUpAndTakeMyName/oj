@@ -1,0 +1,22 @@
+(ns oj.handler
+  (:require [compojure.core :refer :all]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
+            [ring.middleware.reload :refer [wrap-reload]]
+            [aleph.http :as http]))
+
+(def dev-env true)                                              ;;;; This a dev env
+
+(defroutes app-routes
+           (GET "/" [] "Hello Aleph")
+           (route/not-found "Not Found"))
+
+(defn start
+  "Start our server in the specified port"
+  [port]
+  (http/start-server (wrap-defaults (if (= dev-env true) (wrap-reload #'app-routes) #'app-routes)
+                                    site-defaults) {:port port}))
+
+(defn -main [& args]
+  (println "listening port 3000")
+  (start 3000))
