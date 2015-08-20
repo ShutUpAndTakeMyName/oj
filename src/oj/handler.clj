@@ -1,5 +1,6 @@
 (ns oj.handler
-  (:use [hiccup.middleware :only (wrap-base-url)])
+  (:use [hiccup.middleware :only (wrap-base-url)]
+        oj.view)
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
@@ -9,7 +10,7 @@
 (def dev-env true)                                              ;;;; This a dev env
 
 (defroutes app-routes
-           (GET "/" [] "Hello Aleph")
+           (GET "/" [] (index-page))
            (route/not-found "Not Found"))
 
 (defn start
