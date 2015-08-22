@@ -11,6 +11,8 @@
 
 (defroutes app-routes
            (GET "/" [] (index-page))
+           (GET "/problem" [] (problem-page))
+           (route/resources "/")
            (route/not-found "Not Found"))
 
 (defn start
