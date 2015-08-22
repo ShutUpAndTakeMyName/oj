@@ -18,14 +18,26 @@
     [:table {:class "ui celled striped blue table" :style "margin-top:20px"}
      [:thead
       [:tr
-       [:th {:colspan "3"} "Git Repository"]]]
+       [:th {:class "one wide"} "Solved"]
+       [:th {:class "one wide"} "ID"]
+       [:th {:class "ten wide"} "Title"]
+       [:th {:class "four wide"} "Ratio"]]]
      [:tbody
       [:tr
-       [:td {:class "collapsing"}
-        [:i {:class "folder icon"}] "node_modules"]
+       [:td {:class "center aligned"}
+         [:i {:class "checkmark icon"}]]
        [:td
-        [:a {:href "#"} "Initial commit"]]
-       [:td {:class "right aligned collapsing"} "10 hours ago"]]
+        [:a {:href "#"} "1000"]]
+       [:td
+        [:a {:href "#"} "A + B Problem"]]
+       [:td "31.70%(155389/490216)"]]
+      [:tr
+       [:td  ]
+       [:td
+        [:a {:href "#"} "1001"]]
+       [:td
+        [:a {:href "#"} "Sum Problem"]]
+       [:td "25.23%(86921/344535)"]]
       ]]))
 
 (defn index-grid []
