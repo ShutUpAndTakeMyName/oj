@@ -12,6 +12,7 @@
 (defroutes app-routes
            (GET "/" [] (index-page))
            (GET "/problem" [] (problem-page))
+           (GET "/statue" [] (statue-page))
            (route/resources "/")
            (route/not-found "Not Found"))
 

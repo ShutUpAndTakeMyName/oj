@@ -112,3 +112,9 @@
      (footer)]))
 
 
+(defn statue-page []
+  (html5
+    (head)
+    [:body
+     (header)]))
+
