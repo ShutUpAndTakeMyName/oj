@@ -11,15 +11,29 @@
      (include-js "//cdn.bootcss.com/semantic-ui/2.0.8/semantic.min.js")
      (:link {:href "'http://fonts.googleapis.com/css?family=Roboto" :rel "stylesheet" :type "text/css"})]))
 
+(defn body-grid [content]
+  (html
+    [:div {:class "ui internally grid"}
+     [:div {:class "row"}
+      [:div {:class "three wide column"}]
+      [:div {:class "ten wide column"}
+       (content)]
+      [:div {:class "three wide column"}]]]))
+
 (defn header []
   (html
-    [:div {:class "ui borderless menu"}
+    [:div {:class "ui inverted borderless menu"}
      [:div {:class "ui text container"}
       [:div {:class "item"}
-       [:img {:src "http://ac-06fhfsm0.clouddn.com/14c4e432dc6e2b58.png" :class "ui image" :height "30em" }]]
+       [:img {:src "http://ac-06fhfsm0.clouddn.com/9860c7949a1b75df.png" :class "ui image" :height "30em" }]]
       [:a {:class "item"} "Problems"]
       [:a {:class "item"} "Contests"]
       [:a {:class "item"} "Statues"]]]))
+
+(defn footer []
+  (body-grid #(html
+               [:h3 {:class "ui horizontal divider header" } "&nbsp;"]
+               [:p "Powered by Clojure."])))
 
 (defn problems-table []
   (html
@@ -50,14 +64,6 @@
        [:td "25.23%(86921/344535)"]]
       ]]))
 
-(defn body-grid [content]
-  (html
-    [:div {:class "ui internally grid"}
-     [:div {:class "row"}
-      [:div {:class "three wide column"}]
-      [:div {:class "ten wide column"}
-       (content)]
-      [:div {:class "three wide column"}]]]))
 
 (defn index-grid []
   (body-grid problems-table))
@@ -67,7 +73,8 @@
     (head)
     [:body
      (header)
-     (index-grid)]))
+     (index-grid)
+     (footer)]))
 
 (defn problem []
   (html
@@ -85,9 +92,12 @@
      [:h2 "Output Specification"]
      [:p "For each case print the case number, and then A {operator} B result. Check the sample input and output for further details."]
      [:h2 "Sample Input"]
-     [:pre "1 1"]
+     [:pre "1 1\n1 2"]
      [:h2 "Sample Output"]
-     [:pre "2"]
+     [:pre "2\n3"]
+     [:button {:class "ui blue button"}
+      [:i {:class "radio icon"}]
+      "Submit"]
      ]))
 
 (defn problem-grid []
@@ -98,6 +108,7 @@
     (head)
     [:body
      (header)
-     (problem-grid)]))
+     (problem-grid)
+     (footer)]))
 
 

@@ -14,3 +14,10 @@ small {
     font-size: 80%;
 }
 
+@media (min-height: 320px) {
+  .footer.form-page {
+    bottom: 0;
+    width: 100%;
+  }
+}
+
