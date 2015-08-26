@@ -111,6 +111,10 @@
      (problem-grid)
      (footer)]))
 
+(defn statues-table []
+  (html
+    [:h4 {:class ""}]))
+
 
 (defn statue-page []
   (html5
