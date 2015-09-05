@@ -16,7 +16,7 @@ Template.problemSubmit.events({
             pid:Problems.find({}).count()+1000,
             submitnum:0,
             acnum:0,
-            hidden:$(e.target).find('[name=hidden]').val()
+            hidden:$(e.target).find('[name=hidden]').attr("checked")
         };
         problem._id = Problems.insert(problem);
         Router.go('problems');

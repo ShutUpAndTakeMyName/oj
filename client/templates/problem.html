@@ -1,4 +1,5 @@
 <template name="problem">
+    <style type="text/css">.pre {white-space: pre-wrap;}</style>
     <div class="ui segment" style="margin-top: 30px">
         <h1 class="ui header" style="color: #3f3e3a;font-weight: 400;margin-top: 20px">
             {{title}}
@@ -6,19 +7,19 @@
         <small style="color: #3f3e3a;">CPU: {{cpu}}s</small><br>
         <small style="color: #3f3e3a;">Memory: {{memory}}m</small><br><br>
         <p style="color: #3f3e3a;">
-            {{description}}
+             <div class="pre"> {{description}} </div>
         </p>
         <h3 class="ui header" style="color: #3f3e3a;font-weight: 400;">
             Input Specification
         </h3>
         <p style="color: #3f3e3a;">
-            {{inputspec}}
+            <div class="pre">{{inputspec}}</div>
         </p>
         <h3 class="ui header" style="color: #3f3e3a;font-weight: 400;">
             Output Specification
         </h3>
         <p style="color: #3f3e3a;">
-            {{outputspec}}
+            <div class="pre"> {{outputspec}} </div>
         </p>
         <h3 class="ui header" style="color: #3f3e3a;font-weight: 400;">
             Sample

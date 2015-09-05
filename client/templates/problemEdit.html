@@ -1,0 +1,45 @@
+<template name="problemEdit">
+    <div class="ui segment" style="margin-top: 30px">
+        <form class="ui form">
+            <div class="field">
+                <label>Title</label>
+                <input type="text" placeholder="A + B Problem." name="title" value="{{title}}">
+            </div>
+            <div class="field">
+                <label>CPU (s)</label>
+                <input type="text" placeholder="1" name="cpu" value="{{cpu}}">
+            </div>
+            <div class="field">
+                <label>Memory (m)</label>
+                <input type="text" placeholder="32" name="memory" value="{{memory}}">
+            </div>
+            <div class="field">
+                <label>Description</label>
+                <textarea name="description">{{description}}</textarea>
+            </div>
+            <div class="field">
+                <label>Input sepc</label>
+                <textarea name="inputspec">{{inputspec}}</textarea>
+            </div>
+            <div class="field">
+                <label>Output sepc</label>
+                <textarea name="outputspec">{{outputspec}}</textarea>
+            </div>
+            <div class="field">
+                <label>Sample input</label>
+                <textarea name="sampleinput">{{sampleinput}}</textarea>
+            </div>
+            <div class="field">
+                <label>Sample output</label>
+                <textarea name="sampleoutput">{{sampleoutput}}</textarea>
+            </div>
+            <div class="inline field">
+                <div class="ui checkbox">
+                    <input type="checkbox" name="hidden" checked="{{hidden}}">
+                    <label>Hidden?</label>
+                </div>
+            </div>
+            <input type="submit" class="ui submit button" value="update">
+        </form>
+    </div>
+</template>
