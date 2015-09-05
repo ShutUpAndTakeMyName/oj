@@ -1,0 +1,37 @@
+<template name="layout">
+    <div class="ui large top fixed inverted borderless menu" style="background: #3f3e3a ;">
+        <div class="ui container">
+            <a class="active item">Home </a>
+            <a class="item">Problems </a>
+            <a class="item">Contests </a>
+            <a class="item">Statue </a>
+            <div class="right item">
+                {{> loginButtons}} &nbsp;&nbsp;&nbsp;
+                <a href="#">
+                    <i class="plus icon"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="ui grid">
+        <div class="three wide column"></div>
+        <div class="ten wide column">
+            {{> yield }}
+        </div>
+        <div class="three wide column"></div>
+    </div>
+    <footer style="height:56px;margin-top: 30px;">
+        <div class="ui container">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="seven wide column">
+                    &copy; 2015 Miloas.
+                </div>
+                <div class="six wide column"></div>
+                <div class="two wide column" >
+                    <a href="#"><i class="mail icon"></i> Contact us.</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</template>
