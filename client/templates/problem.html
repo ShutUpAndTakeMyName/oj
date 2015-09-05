@@ -1,24 +1,24 @@
 <template name="problem">
     <div class="ui segment" style="margin-top: 30px">
         <h1 class="ui header" style="color: #3f3e3a;font-weight: 400;margin-top: 20px">
-            A+B problem
+            {{title}}
         </h1>
-        <small style="color: #3f3e3a;">CPU: 1000ms</small><br>
-        <small style="color: #3f3e3a;">Memory: 32m</small><br><br>
+        <small style="color: #3f3e3a;">CPU: {{cpu}}s</small><br>
+        <small style="color: #3f3e3a;">Memory: {{memory}}m</small><br><br>
         <p style="color: #3f3e3a;">
-            Given two integers A and B and one of the following operators {+,­-,%,/,*}. You have to perform A {operator} B and output its result. For example, if you are given 5 and 3 as two numbers and + as the operators, then you have to give the answer of 5 + 3.
+            {{description}}
         </p>
         <h3 class="ui header" style="color: #3f3e3a;font-weight: 400;">
             Input Specification
         </h3>
         <p style="color: #3f3e3a;">
-            The first line contains a positive integer T ( T less than 100 ). In the following T lines, you will be given two integers A, B and a character. The absolute value of A and B will not exceed 10^9.
+            {{inputspec}}
         </p>
         <h3 class="ui header" style="color: #3f3e3a;font-weight: 400;">
             Output Specification
         </h3>
         <p style="color: #3f3e3a;">
-            For each case print the case number, and then A {operator} B result. Check the sample input and output for further details.
+            {{outputspec}}
         </p>
         <h3 class="ui header" style="color: #3f3e3a;font-weight: 400;">
             Sample
@@ -26,24 +26,12 @@
         <h4 class="ui header" style="color: #3f3e3a;font-weight: 400;">
             Input
         </h4>
-        <pre>
-            5
-            10 4 +
-            10 4 ­-
-            10 4 %
-            10 4 /
-            10 4 *
-        </pre>
+        <pre>{{sampleinput}}</pre>
         <h4 class="ui header" style="color: #3f3e3a;font-weight: 400;">
             Output
         </h4>
-        <pre>
-            Case 1: 14
-            Case 2: 6
-            Case 3: 2
-            Case 4: 2
-            Case 5: 40
-        </pre>
+        <pre>{{sampleoutput}}</pre>
+        <br>
         <button class="ui primary button" onclick="$('.small.modal').modal('show');">submit (ง •̀灬•́)ง</button>
     </div>
     <div class="ui small modal">

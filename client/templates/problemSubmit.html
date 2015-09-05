@@ -3,43 +3,43 @@
         <form class="ui form">
             <div class="field">
                 <label>Title</label>
-                <input type="text" placeholder="A + B Problem.">
+                <input type="text" placeholder="A + B Problem." name="title">
             </div>
             <div class="field">
                 <label>CPU (s)</label>
-                <input type="text" placeholder="1">
+                <input type="text" placeholder="1" name="cpu">
             </div>
             <div class="field">
                 <label>Memory (m)</label>
-                <input type="text" placeholder="32">
+                <input type="text" placeholder="32" name="memory">
             </div>
             <div class="field">
                 <label>Description</label>
-                <textarea></textarea>
+                <textarea name="description"></textarea>
             </div>
             <div class="field">
                 <label>Input sepc</label>
-                <textarea></textarea>
+                <textarea name="inputspec"></textarea>
             </div>
             <div class="field">
                 <label>Output sepc</label>
-                <textarea></textarea>
+                <textarea name="outputspec"></textarea>
             </div>
             <div class="field">
                 <label>Sample input</label>
-                <textarea></textarea>
+                <textarea name="sampleinput"></textarea>
             </div>
             <div class="field">
                 <label>Sample output</label>
-                <textarea></textarea>
+                <textarea name="sampleoutput"></textarea>
             </div>
             <div class="inline field">
                 <div class="ui checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" name="hidden">
                     <label>Hidden?</label>
                 </div>
             </div>
-            <div class="ui submit button">Submit</div>
+            <input type="submit" class="ui submit button" value="submit">
         </form>
     </div>
 </template>

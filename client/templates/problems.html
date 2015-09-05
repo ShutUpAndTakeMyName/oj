@@ -9,30 +9,14 @@
             </tr>
         </thead>
         <tbody>
+            {{#each problems}}
             <tr class="center aligned">
                 <td><i class="checkmark icon"></i> </td>
-                <td><a href="#">1000</a></td>
-                <td><a href="#">A+B problem</a></td>
+                <td><a href="/problems/{{_id}}">{{pid}}</a></td>
+                <td><a href="/problems/{{_id}}">{{title}}</a></td>
                 <td>100%</td>
             </tr>
-            <tr class="center aligned">
-                <td><i class="checkmark icon"></i> </td>
-                <td><a>1001</a></td>
-                <td><a>Sum Problem</a></td>
-                <td>100%</td>
-            </tr>
-            <tr class="center aligned">
-                <td><i class="checkmark icon"></i> </td>
-                <td><a>1002</a></td>
-                <td><a> A + B Problem II</a></td>
-                <td>100%</td>
-            </tr>
-            <tr class="center aligned">
-                <td><i class="checkmark icon"></i> </td>
-                <td><a>1003</a></td>
-                <td><a>Max Sum</a></td>
-                <td>100%</td>
-            </tr>
+            {{/each}}
         </tbody>
     </table>
 </template>
