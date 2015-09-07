@@ -32,5 +32,40 @@ Template.problemEdit.events({
             Problems.remove(this._id);
             Router.go('problems');
         }
+    },
+    'change .inputFiles': function(e) {
+        var files = e.target.files;
+        var problemTitle = document.getElementsByName('title')[0].value;
+        var inputFileName = Problems.findOne({title:problemTitle}).pid;
+        for (var i= 0,ln=files.length;i<ln;++i){
+            var newFile = new FS.File(files[i]);
+            newFile.fileType = "inputFile"
+            Files.insert(newFile, function (err,fileObj) {
+                fileObj.name(inputFileName+'.in');
+            });
+        }
+    },
+    'click .removeInputFile': function (e) {
+        if(confirm("Delete this file?")){
+            var f = Files.findOne(this._id).remove();
+        }
+
+    },
+    'change .outputFiles': function(e) {
+        var files = e.target.files;
+        var problemTitle = document.getElementsByName('title')[0].value;
+        var outputFileName = Problems.findOne({title:problemTitle}).pid;
+        for (var i= 0,ln=files.length;i<ln;++i){
+            var newFile = new FS.File(files[i]);
+            newFile.fileType = "outputFile"
+            Files.insert(newFile, function (err,fileObj) {
+                fileObj.name(outputFileName+'.out');
+            });
+        }
+    },
+    'click .removeOutputFile': function (e) {
+        if(confirm("Delete this file?")){
+            var f = Files.findOne(this._id).remove();
+        }
     }
-})
+});

@@ -1,0 +1,9 @@
+<template name="inputFileList">
+    <div>
+        {{#each files}}
+            <div>
+                <span><a href="{{this.url download=true}}" >{{this.name}}</a><a class="removeInputFile"><i class="remove icon"></i></a></span>
+            </div>
+        {{/each}}
+    </div>
+</template>
