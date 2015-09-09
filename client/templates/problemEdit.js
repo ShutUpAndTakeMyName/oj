@@ -28,6 +28,7 @@ Template.problemEdit.events({
     },
     'click .negative': function (e) {
         e.preventDefault();
+        //Meteor.call('judge');
         if(confirm("Delete this problem?")){
             Problems.remove(this._id);
             Router.go('problems');
@@ -39,7 +40,7 @@ Template.problemEdit.events({
         var inputFileName = Problems.findOne({title:problemTitle}).pid;
         for (var i= 0,ln=files.length;i<ln;++i){
             var newFile = new FS.File(files[i]);
-            newFile.fileType = "inputFile"
+            newFile.fileType = "inputFile";
             Files.insert(newFile, function (err,fileObj) {
                 fileObj.name(inputFileName+'.in');
             });

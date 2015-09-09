@@ -10,12 +10,14 @@
         </thead>
         <tbody>
             {{#each problems}}
+            {{#if isAdmin || hidden}}
             <tr class="center aligned">
                 <td><i class="checkmark icon"></i> </td>
                 <td><a href="/problems/{{_id}}">{{pid}}</a></td>
                 <td><a href="/problems/{{_id}}">{{title}}</a></td>
                 <td>100%</td>
             </tr>
+            {{/if}}
             {{/each}}
         </tbody>
     </table>
