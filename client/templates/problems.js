@@ -5,8 +5,8 @@
 Meteor.subscribe('problems');
 Template.problems.helpers({
     problems:Problems.find({}),
-    isAdmin:function(){
-        if(Meteor.user()&&Meteor.user().username=='admin')return true;
-        else return false;
+    isDisplay:function(hidden){
+        if(!hidden || (Meteor.user()&&Meteor.user().username==='admin'))return true;
+        return false;
     }
 });

@@ -10,7 +10,7 @@
         </thead>
         <tbody>
             {{#each problems}}
-            {{#if isAdmin || hidden}}
+            {{#if isDisplay hidden}}
             <tr class="center aligned">
                 <td><i class="checkmark icon"></i> </td>
                 <td><a href="/problems/{{_id}}">{{pid}}</a></td>

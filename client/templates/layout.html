@@ -7,9 +7,11 @@
             <a class="item">Statue </a>
             <div class="right item">
                 {{> loginButtons}} &nbsp;&nbsp;&nbsp;
+                {{#if isAdmin}}
                 <a href="/problemSubmit">
                     <i class="plus icon"></i>
                 </a>
+                {{/if}}
             </div>
         </div>
     </div>
