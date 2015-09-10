@@ -7,10 +7,10 @@ exec = Npm.require('child_process').exec;
 
 Meteor.methods({
     judge: function(){
-        exec("ls", function (error,stdout,stderr) {
-            console.log('stdout: '+ stdout);
-            console.log('stderr: '+ stderr);
-            console.log('里其余');
+        exec("ljudge --max-cpu-time 1.0 --max-memory 32m --user-code ~/submitcode/a.c --testcase --input ~/upload/1.in --output ~/upload/1.out", function (error,stdout,stderr) {
+		var jsonResult = JSON.parse(stdout);
+		console.log(jsonResult['testcases']);
+		//console.log(stdout);
         })
     }
 })
