@@ -28,7 +28,6 @@ Template.problemEdit.events({
     },
     'click .negative': function (e) {
         e.preventDefault();
-        Meteor.call('judge');
         if(confirm("Delete this problem?")){
             Problems.remove(this._id);
             Router.go('problems');

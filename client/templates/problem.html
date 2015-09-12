@@ -34,7 +34,16 @@
         <pre>{{sampleoutput}}</pre>
         <br>
         {{#if isLogin}}
-        {{> codeSubmit}}
+            <div class="ui horizontal divider">Submit</div>
+            <form class="ui form">
+                <div class="field">
+                    <label>Paste your code here</label>
+                    <textarea name="submitedCode"></textarea>
+                </div>
+                <div class="right floated">
+                    <input type="submit" class="ui primary button" value="submit (ง •̀_•)ง" />
+                </div>
+            </form>
         {{/if}}
     </div>
 
