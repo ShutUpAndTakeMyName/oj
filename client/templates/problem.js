@@ -11,6 +11,10 @@ Template.problem.events({
     'submit form': function (e) {
         e.preventDefault();
         var text = $(e.target).find('[name=submitedCode]').val();
-        Meteor.call('saveCode',text,this.pid,this.cpu,this.memory);
+        var inputFileObj = Files.findOne({fileType:"inputFile",pid:this.pid});
+        var inputFileName = 'files-' + inputFileObj._id + '-' + inputFileObj.name();
+        var outputFileObj = Files.findOne({fileType:"outputFile",pid:this.pid});
+        var outputFileName = 'files-' + outputFileObj._id + '-' + outputFileObj.name();
+        Meteor.call('saveCode',text,this.pid,this.cpu,this.memory,inputFileName,outputFileName);
     }
 })

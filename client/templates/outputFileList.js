@@ -3,6 +3,6 @@
  */
 Template.outputFileList.helpers({
     files:function(){
-        return Files.find({fileType:"outputFile"});
+        return Files.find({fileType:"outputFile",pid:this.owner});
     }
 });

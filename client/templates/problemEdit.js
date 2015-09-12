@@ -40,6 +40,7 @@ Template.problemEdit.events({
         for (var i= 0,ln=files.length;i<ln;++i){
             var newFile = new FS.File(files[i]);
             newFile.fileType = "inputFile";
+            newFile.pid = inputFileName;
             Files.insert(newFile, function (err,fileObj) {
                 fileObj.name(inputFileName+'.in');
             });
@@ -57,7 +58,8 @@ Template.problemEdit.events({
         var outputFileName = Problems.findOne({title:problemTitle}).pid;
         for (var i= 0,ln=files.length;i<ln;++i){
             var newFile = new FS.File(files[i]);
-            newFile.fileType = "outputFile"
+            newFile.fileType = "outputFile";
+            newFile.pid = outputFileName;
             Files.insert(newFile, function (err,fileObj) {
                 fileObj.name(outputFileName+'.out');
             });

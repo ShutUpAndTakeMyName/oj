@@ -4,6 +4,6 @@
 Meteor.subscribe('files')
 Template.inputFileList.helpers({
     files:function(){
-        return Files.find({fileType:"inputFile"});
+        return Files.find({fileType:"inputFile",pid:this.owner});
     }
 });

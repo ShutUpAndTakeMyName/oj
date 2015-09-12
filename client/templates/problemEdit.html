@@ -43,12 +43,12 @@
                 <label>Standard input file</label>
                 <input type="file" class="inputFiles">
             </div>
-            {{> inputFileList}}
+            {{> inputFileList owner=pid}}
             <div class="field">
                 <label>Standard output file</label>
                 <input type="file" class="outputFiles">
             </div>
-            {{> outputFileList}}
+            {{> outputFileList owner=pid}}
             <input type="submit" class="ui submit button" value="update">
             <button class="negative ui button" >delete</button>
         </form>
