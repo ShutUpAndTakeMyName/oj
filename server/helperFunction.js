@@ -15,7 +15,7 @@ Meteor.methods({
         }
         var randomCodeName = Random.id(6) + '.cc';
         fs.writeFile('D:\\'+randomCodeName,submitedCode,function(err){
-            var testCasesPath = '~/testCases/'
+            var testCasesPath = '~/testCases/';
             var cmdHead = 'ljudge';
             var cpuOption = '--max-cpu-time ' + cpu;
             var memOption = '--max-memory ' + memory + 'm';
