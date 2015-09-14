@@ -12,3 +12,7 @@ Meteor.publish('files', function () {
 Meteor.publish('userinfo', function () {
     return UserInfo.find();
 });
+
+Meteor.publish('status', function () {
+    return Status.find();
+});

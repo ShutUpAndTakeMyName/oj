@@ -3,8 +3,10 @@
  * Created by miloas on 2015/9/12.
  */
 var fs = Npm.require('fs');
+
+
 Meteor.methods({
-    saveCode: function (submitedCode,owner,cpu,memory,inputFileName,outputFileName) {
+    saveCode: function (submitedCode,owner,cpu,memory,inputFileName,outputFileName,statuId) {
         var currentUser = Meteor.user();
         var currentUserInfo = UserInfo.findOne({username:currentUser.username});
         if (currentUserInfo === undefined){
@@ -23,7 +25,10 @@ Meteor.methods({
             var inputOption = ' --testcase --input ' + testCasesPath+ inputFileName;
             var outputOption = '--output ' + testCasesPath + outputFileName;
             var cmd = [cmdHead,cpuOption,memOption,codeOption,inputOption,outputOption].join(' ');
+            console.log(statuId);
             console.log(cmd);
+            //Meteor.call(cmd);
+
        })
     }
 })

@@ -16,6 +16,7 @@ Template.problemSubmit.events({
             pid:Problems.find({}).count()+1000,
             submitnum:0,
             acnum:0,
+            owner:'-',
             hidden:false
         };
         problem._id = Problems.insert(problem);

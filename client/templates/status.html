@@ -3,24 +3,26 @@
         <thead>
         <tr class="center aligned">
             <th class="four wide">Submit Time</th>
-            <th class="three wide">Judge Status</th>
+            <th class="four wide">Judge Status</th>
             <th class="one wide">Pro.Id</th>
             <th class="one wide">Exe.Time</th>
             <th class="one wide">Exe.Memory</th>
             <th class="one wide">Language</th>
-            <th class="five wide">Author</th>
+            <th class="four wide">Author</th>
         </tr>
         </thead>
         <tbody>
-                <tr class="center aligned">
-                    <td>2015-09-13 22:21:05</td>
-                    <td class="positive">Accepted</td>
-                    <td>1000</td>
-                    <td>0.02s</td>
-                    <td>334k</td>
-                    <td>C++</td>
-                    <td>miloas</td>
-                </tr>
+        {{#each judgeRet}}
+        <tr class="center aligned">
+            <td>{{submitTime}}</td>
+            <td class="positive">{{statu}}</td>
+            <td>{{proId}}</td>
+            <td>{{cpu}}s</td>
+            <td>{{memory}}k</td>
+            <td>C++</td>
+            <td>{{author}}</td>
+        </tr>
+        {{/each}}
         </tbody>
     </table>
 </template>
