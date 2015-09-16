@@ -5,6 +5,6 @@
 Meteor.subscribe('status');
 Template.status.helpers({
     judgeRet: function () {
-       return Status.find({},{sort:{date_created: -1}});
+       return Status.find({owner:'-'},{sort:{date_created: -1}});
     }
 })

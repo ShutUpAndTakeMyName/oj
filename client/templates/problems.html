@@ -21,4 +21,9 @@
             {{/each}}
         </tbody>
     </table>
+    <div class="ui pagination menu">
+        {{#each problemsPages}}
+            <a href="/problems/{{idx}}" class="item">{{idx}} </a>
+        {{/each}}
+    </div>
 </template>
