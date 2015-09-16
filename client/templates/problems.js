@@ -7,7 +7,7 @@ Template.problems.onCreated(function () {
     template.autorun(function () {
         var currentPage = parseInt(Router.current().params.page) || 1;
         var skipCount = (currentPage - 1) * 100;
-        template.subscribe('problems',skipCount);
+        template.subscribe('problems',skipCount,-1);
     });
 });
 

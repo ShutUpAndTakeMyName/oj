@@ -1,7 +1,7 @@
 /**
  * Created by miloas on 2015/9/5.
  */
-Meteor.publish('problems',function(skipCount){
+Meteor.publish('problems',function(skipCount,findType){
     var positiveIntegerCheck = Match.Where(function(x){
         check(x,Match.Integer);
         return x>=0;
@@ -10,10 +10,14 @@ Meteor.publish('problems',function(skipCount){
     Counts.publish(this,'problemsCount',Problems.find(),{
         noReady: true
     });
-    return Problems.find({},{
-        limit: 100,
-        skip: skipCount
-    });
+    if(findType === -1) {
+        return Problems.find({}, {
+            limit: 100,
+            skip: skipCount
+        });
+    }else{
+        return Problems.find({_id:findType});
+    }
 });
 
 Meteor.publish('files', function () {

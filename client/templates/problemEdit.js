@@ -1,6 +1,13 @@
 /**
  * Created by miloas on 2015/9/5.
  */
+Template.problemEdit.onCreated(function () {
+    var template = this;
+    template.autorun(function () {
+        template.subscribe('problems',1,Router.current().params._id);
+    });
+});
+
 Template.problemEdit.events({
     'submit form': function (e) {
         e.preventDefault();
