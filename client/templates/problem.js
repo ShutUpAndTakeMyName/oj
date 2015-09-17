@@ -49,8 +49,7 @@ Template.problem.events({
             submitTime:currentTime,
             proId:this.pid,
             cpu:'-',
-            memory:'-',
-            lang:'-',
+            lang:'C++',
             statu:'-',
             owner:this.owner
         });

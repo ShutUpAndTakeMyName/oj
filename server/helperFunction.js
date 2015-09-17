@@ -27,7 +27,7 @@ Meteor.methods({
             var cmd = [cmdHead,cpuOption,memOption,codeOption,inputOption,outputOption].join(' ');
             console.log(statuId);
             console.log(cmd);
-            //Meteor.call(cmd);
+            //Meteor.call(cmd,statuId);
 
        })
     }
