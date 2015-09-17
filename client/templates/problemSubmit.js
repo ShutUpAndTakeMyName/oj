@@ -17,7 +17,7 @@ Template.problemSubmit.events({
             submitnum:0,
             acnum:0,
             owner:'-',
-            hidden:false
+            hidden:true
         };
         problem._id = Problems.insert(problem);
         Router.go('problems');
