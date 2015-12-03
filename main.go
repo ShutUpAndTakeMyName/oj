@@ -10,6 +10,8 @@ import (
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", controller.HandlHome)
+	mux.HandleFunc("/login", controller.HandlLogin)
+	mux.HandleFunc("/signUp", controller.HandlSignUp)
 
 	n := negroni.New(
 		negroni.NewRecovery(),
