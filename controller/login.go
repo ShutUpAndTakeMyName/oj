@@ -1,32 +1,51 @@
 package controller
 
 import (
-	//"github.com/gorilla/sessions"
-	"html/template"
 	"net/http"
+	"oj/models"
 )
 
-//var store = sessions.NewCookieStore([]byte("something-very-secret"))
+type LoginTip struct {
+	UnameTip string
+	PwdTip   string
+	TmplData models.TmplState
+}
 
 func HandlLogin(w http.ResponseWriter, r *http.Request) {
-
+	lgTip := LoginTip{UnameTip: "",
+		PwdTip: ""}
 	if r.Method == "GET" {
-		//fp := path.Join("templates", "login.html")
-
-		tmpl, err := template.ParseFiles("templates/login.html", "templates/base.tpl")
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
+		if r.FormValue("exit") == "true" {
+			session, _ := store.Get(r, "normLogin")
+			session.Values["uname"] = r.FormValue("uname")
+			session.Values["IsLogin"] = false
+			lgTip.TmplData.State["IsLogin"] = session.Values["IsLogin"]
+			session.Options.MaxAge = -1
+			session.Save(r, w)
 		}
-		if err := tmpl.Execute(w, nil); err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-		}
+		Render.HTML(w, http.StatusOK, "login", lgTip)
+		return
 	}
 
-	// if r.Method == "POST" {
-	// 	uname := r.FormValue("uname")
-	// 	upwd := r.FormValue("pwd")
-	// 	r.Cookie(name)
-	// }
+	if r.Method == "POST" {
+		r.ParseForm()
+		if !models.IsunameTaken(r.FormValue("uname"), w) {
+			lgTip.UnameTip = "用户名不存在"
+			lgTip.PwdTip = ""
+			Render.HTML(w, http.StatusOK, "login", lgTip)
+		}
+		if !models.VerifyPwd(r.FormValue("uname"), r.FormValue("pwd")) {
+			lgTip.UnameTip = ""
+			lgTip.PwdTip = "密码错误"
+			Render.HTML(w, http.StatusOK, "login", lgTip)
+		}
+		session, _ := store.Get(r, "normLogin")
+		session.Values["Uname"] = r.FormValue("uname")
+		session.Values["IsLogin"] = true
+		lgTip.TmplData.State["IsLogin"] = session.Values["IsLogin"]
+		session.Options.MaxAge = 0
+		session.Save(r, w)
+		return
 
+	}
 }

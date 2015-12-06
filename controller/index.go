@@ -1,17 +1,8 @@
 package controller
 
-import (
-	"html/template"
-	"net/http"
-)
+import "net/http"
 
+//HandlHome :handle "/"
 func HandlHome(w http.ResponseWriter, req *http.Request) {
-	tmpl, err := template.ParseFiles("templates/index.html", "templates/base.tpl")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	if err := tmpl.Execute(w, nil); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
+	Render.HTML(w, http.StatusOK, "index", nil)
 }
